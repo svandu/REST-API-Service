@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svandu/REST-API-Service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svandu/REST-API-Service/issues"
+  },
+  "homepage": "https://github.com/svandu/REST-API-Service#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

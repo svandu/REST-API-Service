@@ -37,6 +37,9 @@ connectDB()
 
 // routes import
 const healthCheck = require("./routes/healthcheck.routes.js")
+const productRoute = require("./routes/product.routes.js")
 
 //routes declaration 
 app.use("/api/v1", healthCheck)
+
+app.use("/api/v1", productRoute)

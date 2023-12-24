@@ -24,6 +24,15 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+// routes import
+const healthCheck = require("./routes/healthcheck.routes.js")
+const productRoute = require("./routes/product.routes.js")
+
+//routes declaration 
+// app.use("/api/v1", healthCheck)
+
+app.use("/api/v1", productRoute)
+
 connectDB()
 .then( () => {
     app.listen(process.env.PORT || 8000 , () => {
@@ -34,12 +43,3 @@ connectDB()
 .catch((err) => {
     console.log("MONGODB Connection FAILED !!!", err);
 })
-
-// routes import
-const healthCheck = require("./routes/healthcheck.routes.js")
-const productRoute = require("./routes/product.routes.js")
-
-//routes declaration 
-app.use("/api/v1", healthCheck)
-
-app.use("/api/v1", productRoute)

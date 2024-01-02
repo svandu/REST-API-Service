@@ -8,10 +8,7 @@ const app = express()
 /**
  * Load all the envirnoment variables on the initial load of first entry point
 */
-dotenv.config({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true
-})
+dotenv.config()
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
@@ -25,7 +22,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 // routes import
-const healthCheck = require("./routes/healthcheck.routes.js")
+// const healthCheck = require("./routes/healthcheck.routes.js")
 const productRoute = require("./routes/product.routes.js")
 
 //routes declaration 

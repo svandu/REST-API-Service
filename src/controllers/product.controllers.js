@@ -1,3 +1,5 @@
+const { ObjectId } = require('mongoose').Types;
+
 const Product = require("../models/product.models.js");
 
 const getAllProducts = async (req, res) => {
@@ -39,8 +41,31 @@ const createNewProduct = async (req, res) => {
   }
 };
 
+const deleteProducts = async (req, res) => {
+
+  const productId = req.params.productId;
+
+  try {
+
+    const productIdObject =  new ObjectId(productId);
+
+    const result = await Product.findOneAndDelete({_id: productIdObject });
+
+    //if result is true that means the id is found then send the if statement message
+    if(result) {
+      res.status(200).json({message: `Product with id: ${productId} is deleted`});
+    } else {
+      res.status(404).json({message: `Product with id: ${productId} is not found`});
+    }
+
+  } catch (error) {
+    console.log('Error deleting product: ', error);
+    res.status(500).json({message: "Internal server error"})
+  }
+}
 
 module.exports = {
   getAllProducts,
   createNewProduct,
+  deleteProducts
 };

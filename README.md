@@ -1,19 +1,26 @@
 # Fake API Service
 
 ## Table of contents 
-- [Ecommerce Platform - API's](#heading-2)
+- [Ecommerce Platform - API's](#ecommerce-platform---apis)
+  - [Get Products - GET](#get-products---get)
+    - [Endpoint](#endpoint)
+    - [Query Parameters](#query-parameters)
+    - [Example](#example)
+    - [Response](#response)
+  - [Create Products - POST](#create-products---post)
+    - [Endpoint](#endpoint-1)
+    - [Request Body](#request-body)
+    - [Example](#example-1)
+    - [Response](#response-1)
+  - [Delete Products - DELETE](#delete-products---delete)
+    - [Endpoint](#endpoint-2)
+    - [Query Parameters](#query-parameters-1)
+    - [Example](#example-2)
+    - [Response](#response-2)
 
 ## Ecommerce Platform - API's
 
-- [Get Products - GET](#heading-3)
-- [Create Products - POST](#heading-3)
-
 ### Get Products - GET
-
-- [Endpoint](#heading-4)
-- [Query Parameters](#heading-4)
-- [Example](#heading-4)
-- [Response](#heading-4)
 
 #### Endpoint
 
@@ -42,11 +49,6 @@ List of all products
 ```
 
 ### Create Products - POST
-
-- [Endpoint](#heading-4)
-- [Request Body](#heading-4)
-- [Example](#heading-4)
-- [Response](#heading-4)
 
 #### Endpoint
 
@@ -82,11 +84,6 @@ router.post("{BASE_URL}/api/v1/products"
 UNKNOWN
 ```
 ### Delete Products - DELETE
-
-- [Endpoint](#heading-4)
-- [Query Parameters](#heading-4)
-- [Example](#heading-4)
-- [Response](#heading-4)
 
 #### Endpoint
 

@@ -4,17 +4,17 @@
 - [Ecommerce Platform - API's](#ecommerce-platform---apis)
   - [Get Products - GET](#get-products---get)
     - [Endpoint](#endpoint)
-    - [Query Parameters](#query-parameters)
+    - [Request Body](#request-body)
     - [Example](#example)
     - [Response](#response)
   - [Create Products - POST](#create-products---post)
     - [Endpoint](#endpoint-1)
-    - [Request Body](#request-body)
+    - [Request Body](#request-body-1)
     - [Example](#example-1)
     - [Response](#response-1)
   - [Delete Products - DELETE](#delete-products---delete)
     - [Endpoint](#endpoint-2)
-    - [Query Parameters](#query-parameters-1)
+    - [Request Body](#request-body-2)
     - [Example](#example-2)
     - [Response](#response-2)
 
@@ -27,7 +27,7 @@
 ```markdown
 http://localhost:8000/api/v1/products
 ```
-#### Query Parameters
+#### Request Body
 
 | Name | Type | Validation |
 | ---- | ---- | ------ |
@@ -90,7 +90,7 @@ UNKNOWN
 ```markdown
 http://localhost:8000/api/v1/products/:productId
 ```
-#### Query Parameters
+#### Request Body
 
 | Name | Type | Validation |
 | ---- | ---- | ------ |

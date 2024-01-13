@@ -25,12 +25,14 @@ app.use(cookieParser())
 // const healthCheck = require("./routes/healthcheck.routes.js")
 const productRoute = require("./routes/product.routes.js")
 const userRoute = require("./routes/user.routes.js")
+const cartRoute = require("./routes/cart.routes.js")
 
 //routes declaration 
 // app.use("/api/v1", healthCheck)
 
 app.use("/api/v1", productRoute)
 app.use("/api/v1/user", userRoute)
+app.use("/api/v1", cartRoute)
 
 connectDB()
 .then( () => {

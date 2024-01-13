@@ -1,5 +1,3 @@
-const { ObjectId } = require("mongoose").Types;
-
 const Product = require("../models/product.model.js");
 
 const getAllProducts = async (req, res) => {
@@ -30,6 +28,7 @@ const createNewProduct = async (req, res) => {
 
     res.status(200).json(newProduct);
   } catch (error) {
+    console.log("Error while createing new product: ", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -38,9 +37,8 @@ const deleteProducts = async (req, res) => {
   const productId = req.params.productId;
 
   try {
-    const productIdObject = new ObjectId(productId);
 
-    const result = await Product.findOneAndDelete({ _id: productIdObject });
+    const result = await Product.findOneAndDelete({ _id: productId });
 
     //if result is true that means the id is found then send the if statement message
     if (result) {

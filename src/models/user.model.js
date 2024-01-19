@@ -23,6 +23,9 @@ const userSchema = mongoose.Schema(
       require: true,
       unique: true,
     },
+    profileImage: {
+      type: String,
+    },
     refreshToken: {
       type: String,
     },

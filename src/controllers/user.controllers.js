@@ -1,6 +1,7 @@
 const User = require("../models/user.model.js");
 const ApiError = require("../utils/ApiError.js");
 const bcrypt = require("bcrypt");
+const uploadOnCloudinary = require("../utils/cloudinary.js");
 
 const generateAccessAndRefreshToken = async (userId) => {
   try {
@@ -17,7 +18,7 @@ const generateAccessAndRefreshToken = async (userId) => {
 
     return { refreshToken, accessToken };
   } catch (error) {
-    console.log("Error in generateAccessAndRefreshToken: ", error)
+    console.log("Error in generateAccessAndRefreshToken: ", error);
     throw new ApiError(
       500,
       "Something went wrong while generating access token and refresh token"
@@ -56,14 +57,28 @@ const registerUser = async (req, res) => {
       throw new ApiError(409, "User with email and username already exist");
     }
 
+    // "?." used for if the field is empty or null then it will not show and error it shows undefined
+    // const profileImageLocalPath = req.files?.profileImage[0]?.path;
+    // const profileImage = await uploadOnCloudinary(profileImageLocalPath);
+
+    console.log(req.files);
+
     const newUser = new User({
       username,
       email,
       fullName,
       //storing the password before save
       password: await bcrypt.hash(password, 10),
+      profileImage: profileImage.url || "",
     });
 
+    // const createdUser = await User.findById(User._id).select(
+    //   "-password -refreshToken"
+    // );
+
+    // if (!createdUser) {
+    //   throw new ApiError(500, "Something went wrong");
+    // }
     await newUser.save();
 
     res.status(200).json({
@@ -74,6 +89,7 @@ const registerUser = async (req, res) => {
         email: newUser.email,
         fullName: newUser.fullName,
         password: newUser.password,
+        profileImage: newUser.profileImage,
       },
     });
   } catch (error) {
@@ -123,7 +139,7 @@ const loginUser = async (req, res) => {
     accessToken,
   });
 
-  // second method to show the tokens inside the user object 
+  // second method to show the tokens inside the user object
   // Include refreshToken and accessToken in the user object
   // const loggedInUser = {
   //   ...user.toObject(),
@@ -140,7 +156,6 @@ const loginUser = async (req, res) => {
   //   user: loggedInUser,
   // });
 };
-
 
 module.exports = {
   registerUser,

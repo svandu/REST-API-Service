@@ -33,6 +33,7 @@ const createNewProduct = async (req, res) => {
     });
 
     // Save the product to the database
+    
     await newProduct.save();
 
     res.status(200).json({

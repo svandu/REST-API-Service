@@ -2,7 +2,7 @@
 
 ## API LINK
 
-[API LINK](https://speeding-firefly-532427.postman.co/documentation/21676004-9002fd9d-0452-4857-84dd-c2265cf22dbe/publish?workspaceId=6195eaf9-dafc-4020-8d2f-e7f876fd490a)
+[API LINK](https://documenter.getpostman.com/view/21676004/2sA2xmUAuD)
 
 ## Table of contents 
 - [Ecommerce Platform - API's](#ecommerce-platform---apis)
